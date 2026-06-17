@@ -1,14 +1,12 @@
-import Cursor from "@/components/ui/Cursor";
 import "./globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-});
+import Navbar from "@/components/layout/Navbar";
+import Cursor from "@/components/ui/Cursor";
+import Loader from "@/components/ui/Loader";
 
 export const metadata = {
-  title: "Adem Chebbi | ACX",
-  description: "Full-Stack Developer • Founder of ACX",
+  title: "ACX | Think, Believe, Make it Happen.",
+  description:
+    "ACX creates modern digital solutions, websites, applications and technology projects.",
 };
 
 export default function RootLayout({
@@ -18,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body>
+        <Loader />
         <Cursor />
+        <Navbar />
         {children}
       </body>
     </html>

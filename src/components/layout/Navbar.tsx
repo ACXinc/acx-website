@@ -1,64 +1,76 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
-  return (
-    <nav
-      className="
-      fixed
-      top-0
-      left-0
-      w-full
-      z-50
-      bg-black/70
-      backdrop-blur-md
-      border-b
-      border-white/10
-      "
-    >
-      <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
-        <Link
-          href="/"
-          className="text-2xl font-bold text-white tracking-wider"
-        >
-          ACX
-        </Link>
+const links = [
+"Home",
+"About",
+"ACX",
+"Services",
+"Portfolio",
+"Blog",
+"Book",
+"Contact"
+];
 
-        <div className="hidden md:flex gap-8 text-gray-300">
-          <Link href="/" className="hover:text-white transition">
-            Home
-          </Link>
+return (
+<nav
+className="
+fixed
+top-0
+left-0
+w-full
+z-50
+backdrop-blur-md
+bg-black/40
+border-b
+border-white/10
+"
+>
 
-          <Link href="#about" className="hover:text-white transition">
-            About
-          </Link>
+<div className="
+max-w-7xl
+mx-auto
+flex
+justify-between
+items-center
+px-8
+py-5
+">
 
-          <Link href="#services" className="hover:text-white transition">
-            Services
-          </Link>
+<h1 className="text-3xl font-bold text-white">
+ACX
+</h1>
 
-          <Link href="#contact" className="hover:text-white transition">
-            Contact
-          </Link>
-        </div>
 
-        <Link
-          href="#contact"
-          className="
-          px-5
-          py-2
-          rounded-full
-          bg-yellow-500
-          text-black
-          font-semibold
-          hover:bg-yellow-400
-          transition
-          "
-        >
-          Start Project
-        </Link>
+<div className="flex gap-8">
 
-      </div>
-    </nav>
-  );
+{links.map((link)=>(
+
+<Link
+key={link}
+href={`#${link.toLowerCase()}`}
+className="
+text-white
+hover:text-yellow-400
+transition
+"
+>
+
+{link}
+
+</Link>
+
+))}
+
+</div>
+
+</div>
+
+</nav>
+)
+
 }
